@@ -1,0 +1,34 @@
+application: lugtshirtpoll
+version: 1
+runtime: python
+api_version: 1
+
+builtins:
+- datastore_admin: on
+- appstats: on
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+  
+- url: /img
+  static_dir: img
+  
+- url: /
+  script: main.py
+  login: required
+  
+- url: /index\.html
+  script: main.py
+  login: required
+  
+- url: /vote
+  script: vote.py
+  login: required
+  
+- url: /graph
+  script: graph.py
+  
+- url: /.*
+  script: oops.py
+  

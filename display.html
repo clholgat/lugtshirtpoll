@@ -1,0 +1,12 @@
+<h2> Choose your {{ rank }} favorite T-Shirt Design </h2>
+<div id="choose">
+    <form action="/vote" method="post">
+    <input type="hidden" name="id" value="{{ id }}" />
+        {% for shirt in shirts %}
+        <input type="radio" name="vote" value="{{ shirt.0 }}"> <a href="{{ shirt.1 }}" target="_new">Design {{ shirt.0 }}</a><br />
+        {% endfor %}
+        <div id="next">
+            <input type="submit" value="Next ->"/>
+        </div>
+    </form>
+</div>
